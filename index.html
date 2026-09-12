@@ -5,18 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Rewatch</title>
   <link rel="manifest" href="manifest.json">
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "c65b02ac-53c6-4a8d-a6e4-27efdbfdca81",
+  <script src="https://onesignal.com" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "c65b02ac-53c6-4a8d-a6e4-27efdbfdca81",
+        // CRUCIAL: Tells OneSignal to automatically prompt the user on arrival
+        promptOptions: {
+          slidedown: {
+            enabled: true,
+            autoPrompt: true,
+            timeDelay: 1,
+            pageViews: 1
+          }
+        }
+      });
     });
-  });
-</script>
+  </script>
   <style>
     html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    iframe { width: 100%; height: 100%; border: none; display: block; }
+    
+    /* FIX: Force absolute positioning so z-index layers execute properly */
+    iframe { width: 100%; height: 100%; border: none; display: block; position: absolute; top: 0; left: 0; z-index: 1; }
+    
+    /* FIX: Elevate OneSignal overlay blocks past the video iframe view */
+    #onesignal-bell-container, 
+    #onesignal-slidedown-container,
+    .onesignal-slidedown-dialog { 
+      z-index: 999999 !important; 
+      position: relative;
+    }
+
     #ios-prompt { display: none; position: fixed; bottom: 24px; left: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); padding: 16px; border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); z-index: 9999; border: 1px solid rgba(0,0,0,0.05); box-sizing: border-box; }
     .banner-container { display: flex; align-items: center; }
     .banner-icon { width: 44px; height: 44px; border-radius: 10px; margin-right: 12px; object-fit: cover; }
@@ -40,7 +60,7 @@
   </div>
 
   <!-- Your Live Custom Embedded App Frame Link -->
-  <iframe src="https://www.remixrewatch.com"></iframe>
+  <iframe src="https://remixrewatch.com"></iframe>
 
   <script>
     if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js'); }); }
