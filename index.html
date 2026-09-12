@@ -5,21 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Rewatch</title>
   <link rel="manifest" href="manifest.json">
-  <script src="https://onesignal.com" defer></script>
+  
+  <!-- FIX: Points to the actual OneSignal library file instead of the marketing website homepage -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
       await OneSignal.init({
-        appId: "c65b02ac-53c6-4a8d-a6e4-27efdbfdca81",
-        // CRUCIAL: Tells OneSignal to automatically prompt the user on arrival
-        promptOptions: {
-          slidedown: {
-            enabled: true,
-            autoPrompt: true,
-            timeDelay: 1,
-            pageViews: 1
-          }
-        }
+        appId: "c65b02ac-53c6-4a8d-a6e4-27efdbfdca81"
+        // Simplified: promptOptions removed so it follows your OneSignal Dashboard rules instead
       });
     });
   </script>
