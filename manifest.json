@@ -1,4 +1,5 @@
 {
+  "id": "https://remixrewatch.com",
   "name": "Remix Rewatch",
   "short_name": "Rewatch",
   "start_url": "/",
@@ -12,6 +13,11 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "scope_extensions": [
+    {
+      "origin": "https://browse.remixrewatch.com"
     }
   ]
 }
