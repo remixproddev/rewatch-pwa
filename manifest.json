@@ -17,7 +17,7 @@
   ],
   "scope_extensions": [
     {
-      "origin": "*.remixrewatch.com"
+      "origin": "https://*.remixrewatch.com"
     }
   ]
 }
