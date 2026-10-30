@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline</title>
+  <style>
+    /* Remove default spacing and lock the viewport dimensions */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000000; /* Change this hex to match your Canva design background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Make the image responsive and cover the full screen smoothly */
+    .offline-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Keeps your Canva aspect ratio perfect without distortion */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ensure 'offline.png' matches the exact filename you cached in your sw.js -->
+  <img src="offline.png" alt="You are currently offline" class="offline-img">
+
+</body>
+</html>
