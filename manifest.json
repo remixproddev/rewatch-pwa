@@ -5,8 +5,8 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#03cafc",
-  "orientation": "portrait",
+  "theme_color": "#3278ff",
+  "orientation": "any",
   "icons": [
     {
       "src": "icon-512.png",
@@ -19,5 +19,18 @@
     {
       "origin": "https://*.remixrewatch.com"
     }
+  ],
+  "description": "Watch Remix originals and more, for free.",
+  "scope": "https://*.remixrewatch.com",
+  "lang": "en",
+  "shortcuts": [
+    {
+      "name": "Browse content",
+      "url": "https://browse.remixrewatch.com",
+      "description": null
+    }
+  ],
+  "categories": [
+    "entertainment"
   ]
 }
